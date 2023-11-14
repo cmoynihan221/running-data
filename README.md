@@ -1,4 +1,4 @@
-# README
+# README 
 
 This ruby project was created using the command `rails new rb-rails-take-home-challenge --api`
 
