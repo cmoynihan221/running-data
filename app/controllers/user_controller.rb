@@ -5,7 +5,7 @@ class UserController < ApplicationController
   end
 
   def show
-    @user = User.find_by!(external_id: user_params[:id])
+    @user = User.find(user_params[:id])
     render json: @user
   end
 

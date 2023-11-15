@@ -4,14 +4,14 @@ class ActivityController < ApplicationController
   end
 
   def show
-    render json: activities.find_by(external_id: activity_params[:id])
+    render json: activities.find(activity_params[:id])
   end
 
   private
 
   def activities
     if activity_params[:user_id]
-      User.find_by(external_id: activity_params[:user_id]).activities
+      User.find(activity_params[:user_id]).activities
     else
       Activity.all
     end
