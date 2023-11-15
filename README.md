@@ -7,7 +7,7 @@
 2. Setup database:  `bin/rails db:setup`
 3. Ensure migrations are run: `bin/rails db:migrate`
 
-### Loading Actvity Data
+### Loading Activity Data
 1. Load rails console: `bin/rails c`
 2. In the console run activity_worker: `ActivityWorker.new.load_activities`
 
