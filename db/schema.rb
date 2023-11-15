@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_13_182304) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_15_092314) do
   create_table "activities", force: :cascade do |t|
     t.string "external_id"
     t.integer "user_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_13_182304) do
     t.float "total_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "start_time"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
