@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class UserController < ApplicationController
   def index
     @users = User.all
@@ -7,7 +5,7 @@ class UserController < ApplicationController
   end
 
   def show
-    @user = User.find(user_params[:id])
+    @user = User.find_by!(external_id: user_params[:id])
     render json: @user
   end
 

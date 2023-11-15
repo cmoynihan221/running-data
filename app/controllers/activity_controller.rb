@@ -11,7 +11,7 @@ class ActivityController < ApplicationController
 
   def activities
     if activity_params[:user_id]
-      User.find(activity_params[:user_id]).activities
+      User.find_by(external_id: activity_params[:user_id]).activities
     else
       Activity.all
     end
