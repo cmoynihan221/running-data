@@ -1,6 +1,6 @@
 class ActivityController < ApplicationController
   def index
-    render json: activities.select(:id, :external_id).order(order).limit(limit)
+    render json: activities.select(:id, :name, :external_id).order(order).limit(limit)
   end
 
   def show

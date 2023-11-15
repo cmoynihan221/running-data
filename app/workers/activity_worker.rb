@@ -6,6 +6,7 @@ class ActivityWorker
 			User.find_or_create_by(external_id: data.find!('userId')).tap do |user|
 				user.activities.find_or_create_by(external_id: data.find!('id')).tap do |activity|
 					summary = SearchableHash.new(data.find!('summary'))
+					activity.name = data.find('name')
 					activity.total_distance = summary.find('distance')&.to_f
 					activity.average_speed = summary.find('averageSpeed')&.to_f
 					activity.total_time = summary.find('totalTime')
