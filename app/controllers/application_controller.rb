@@ -10,9 +10,8 @@ class ApplicationController < ActionController::API
   def authorize
     begin
       validate_token
-      # TODO: validate token
     rescue JWT::DecodeError => e
-      render json: { errors: e.message }, status: :unauthorized
+      render json: { errors: "Auth Failed: #{e.message}"}, status: :unauthorized
     end
   end
 
@@ -25,15 +24,5 @@ class ApplicationController < ActionController::API
   def validate_token
     decoded = JsonWebToken.decode(raw_token)
     raise(JWT::DecodeError, 'Wrong type of token') unless decoded && decoded['type'] == 'auth'
-
-    @current_token = decoded
   end
 end
-
-# ::JSONWebToken.encode(
-#         type: :auth,
-#         username: username,
-#         contact_id: contact.id,
-#         contact_reference: contact.external_reference,
-#         product_json: ::Product.from_user_reference(contact.external_reference)
-#       )
