@@ -1,5 +1,5 @@
 class JsonWebToken
-  SECRET_KEY = Rails.application.secrets.secret_key_base. to_s
+  SECRET_KEY = ENV['PORTAL_WEB_TOKEN_SECRET'] || 'bBvWAfz!Y4UBtJnxib*2P9YW7zear_'
 
   def self.encode(payload, exp = 24.hours.from_now)
     payload[:exp] = exp.to_i
